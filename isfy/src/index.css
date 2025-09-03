@@ -1,0 +1,248 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import performance optimizations */
+@import './styles/performance.css';
+
+/* Import responsive design system */
+@import './styles/responsive.css';
+
+/* Ishrat Fayaz Author Website Design System 
+Monochrome base with pastel accents, serif typography
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Base monochrome colors */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 8%;
+    --charcoal: 210 9% 31%;
+    
+    /* Card and surface colors */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
+    
+    /* Primary: Deep charcoal for elegance */
+    --primary: 210 9% 31%;
+    --primary-foreground: 0 0% 98%;
+    
+    /* Secondary: Soft neutral */
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 8%;
+    
+    /* Muted tones */
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 45%;
+    
+    /* Accent: Powder blue for highlights */
+    --accent: 216 100% 87%;
+    --accent-foreground: 210 9% 31%;
+    
+    /* Pastel color palette */
+    --powder-blue: 216 100% 87%;
+    --blush-pink: 340 100% 87%;
+    --lavender: 240 67% 94%;
+    --sage-green: 85 17% 68%;
+    
+    /* Gradient combinations */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--powder-blue)), hsl(var(--lavender)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--blush-pink)), hsl(var(--powder-blue)));
+    --gradient-sage: linear-gradient(135deg, hsl(var(--sage-green)), hsl(var(--powder-blue)));
+    
+    /* Destructive remains standard */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Border and input styling */
+    --border: 0 0% 90%;
+    --input: 0 0% 94%;
+    --ring: 216 100% 87%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-serif antialiased;
+    letter-spacing: 0.01em;
+    line-height: 1.7;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+    letter-spacing: 0.02em;
+  }
+}
+
+@layer components {
+  /* Typography Classes */
+  .text-hero {
+    @apply text-6xl md:text-8xl font-playfair font-bold tracking-wide leading-none;
+  }
+  
+  .text-title {
+    @apply text-4xl md:text-6xl font-playfair font-semibold tracking-wide;
+  }
+  
+  .text-subtitle {
+    @apply text-xl md:text-2xl font-cormorant font-light tracking-wider;
+  }
+  
+  .text-body-elegant {
+    @apply text-lg font-cormorant leading-relaxed tracking-wide;
+  }
+
+  /* Flying text animation */
+  .flying-text {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .flying-text:nth-child(2) {
+    animation-delay: -2s;
+  }
+  
+  .flying-text:nth-child(3) {
+    animation-delay: -4s;
+  }
+
+  /* Parallax scroll effects */
+  .parallax-slow {
+    transform: translateY(var(--scroll-offset, 0));
+  }
+  
+  /* Elegant hover effects */
+  .elegant-hover {
+    @apply transition-all duration-500 ease-out;
+  }
+  
+  .elegant-hover:hover {
+    @apply transform -translate-y-1 shadow-xl;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer utilities {
+  /* Custom scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--accent));
+    border-radius: 3px;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.8;
+  }
+  25% {
+    transform: translateY(-20px) rotate(1deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-10px) rotate(-1deg);
+    opacity: 0.9;
+  }
+  75% {
+    transform: translateY(-15px) rotate(0.5deg);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
